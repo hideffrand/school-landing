@@ -17,3 +17,21 @@ export const generalData: any = {
   },
   kepalaSekolah: "Farida Susmiarti S.Pd",
 };
+
+export const programPembelajaran: any[] = [
+  {
+    title: "Kurikulum Akademis Unggul",
+    desc: "Menawarkan kurikulum akademis yang unggul dengan fokus pada pembelajaran efektif dan mendalam untuk membentuk pondasi pengetahuan yang kokoh.",
+    img: "/vectors/Vowels-pana.png",
+  },
+  {
+    title: "Aktivitas Kreatif dan Seni",
+    desc: "Mendorong kreativitas dan ekspresi melalui beragam aktivitas seni, memberikan ruang bagi anak-anak untuk mengembangkan imajinasi dan bakat seni mereka.",
+    img: "/vectors/Kindergarten-student-pana.png",
+  },
+  {
+    title: "Pendidikan Fisik dan Kesehatan",
+    desc: "Mengintegrasikan pembelajaran fisik dan kesehatan, membantu anak-anak untuk mengembangkan kebugaran fisik, keterampilan motorik, dan pemahaman tentang pentingnya hidup sehat.",
+    img: "/vectors/Physical-education-pana.png",
+  },
+];

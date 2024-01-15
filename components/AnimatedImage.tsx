@@ -15,13 +15,13 @@ export default function AnimatedImage({
   const isInView = useInView(ref, { once: false });
 
   return (
-    <motion.div ref={ref} key={key} className="md:w-1/3 object-contain ">
+    <motion.div ref={ref} key={key} className="md:w-[40%] object-contain">
       <Image
         src={imageUrl}
         width={800}
         height={800}
         alt={`Gallery Image ${key + 1}`}
-        className="rounded-lg hover:rounded-2xl"
+        className="rounded-lg hover:rounded-2xl hover:scale-[1.02] transition-transform duration-300"
         style={{
           opacity: isInView ? 1 : 0,
           transform: isInView ? "scale(1)" : "scale(0.8)",

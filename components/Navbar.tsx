@@ -8,15 +8,15 @@ export default function Navbar() {
   return (
     <nav className="w-full px-8 md:px-10 py-10 h-20 fixed z-10 flex justify-center">
       <div className="w-full md:w-auto">
-        <div className="bg-white h-16 px-8 shadow-xl rounded-full flex gap-20 justify-between md:justify-center items-center">
+        <div className="bg-white h-16 px-6 shadow-xl rounded-full flex gap-20 justify-between md:justify-center items-center">
           <div className="hidden md:flex gap-8">
             <Link className="" href="#home">
               Home
             </Link>
-            <Link className="" href="#aboutus">
-              Tentang Kami
+            <Link className="" href="#program-pembelajaran">
+              Program Pembelajaran
             </Link>
-            <Link className="" href="gallery">
+            <Link className="" href="#gallery">
               Gallery
             </Link>
           </div>
@@ -31,7 +31,7 @@ export default function Navbar() {
             <HubungiKamiButton />
             <CTAButton />
           </div>
-          <div className="block md:hidden text-4xl text-dark-green">
+          <div className="block md:hidden text-3xl text-dark-green">
             <IoMenu />
           </div>
         </div>

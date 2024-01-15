@@ -14,11 +14,11 @@ export default function Gallery() {
   }, []);
 
   return (
-    <section id="gallery" className="w-full px-8 md:px-40 py-10 flex flex-col justify-center items-center">
-      <h1 className="text-dark-green text-2xl font-bold py-8">
-        Students Gallery
+    <section id="gallery" className="w-full px-8 md:px-40 py-20 flex flex-col justify-center items-start bg-dark-green">
+      <h1 className="text-white text-2xl font-bold py-8">
+        Galeri Kegiatan
       </h1>
-      <div className="flex flex-wrap justify-center gap-8">
+      <div className="flex flex-wrap justify-start gap-8">
         {imageList?.map((image, i) => (
           <AnimatedImage key={i} imageUrl={image} />
         ))}

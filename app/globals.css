@@ -11,10 +11,10 @@
 
 .hero-bg-image {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: absolute;
   z-index: -1;
-  opacity: 0.6;
+  opacity: 0.4;
   background-image: linear-gradient(to bottom, transparent, white), url("hero-bg.jpg");
   background-size: cover;
 }
