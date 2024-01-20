@@ -15,6 +15,13 @@
   position: absolute;
   z-index: -1;
   opacity: 0.4;
-  background-image: linear-gradient(to bottom, transparent, white), url("hero-bg.jpg");
+  background-image: linear-gradient(to bottom, transparent, white),
+    url("hero-bg.jpg");
   background-size: cover;
+}
+
+#page-pendaftaran {
+  background-image: url("bg-page-pendaftaran.jpg");
+  background-size: cover;
+  background-position: center;
 }

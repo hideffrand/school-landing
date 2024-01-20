@@ -1,19 +1,17 @@
-import Image from "next/image";
 import { IoIosCall } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 import { FaWhatsapp } from "react-icons/fa";
 import { generalData } from "@/data";
+import Link from "next/link";
+import Logo from "./Logo";
 
 export default function Footer() {
   return (
-    <footer className="w-full py-20 px-8 md:px-40 flex flex-col md:flex-row justify-between border-t bg-gray-200">
-      <Image
-        src="/logo.png"
-        width={100}
-        height={100}
-        alt="Logo TK Agape"
-        className="aspect-square w-16 md:w-24 my-8"
-      />
+    <footer
+      id="footer"
+      className="w-full py-8 px-8 md:px-40 flex flex-col md:flex-row justify-between items-start md:items-center border-t bg-gray-200"
+    >
+      <Logo />
       <section className="flex flex-col md:flex-row gap-8 justify-end">
         <div className="md:w-1/4">
           <p className="pb-4 font-bold">Alamat</p>
@@ -28,10 +26,12 @@ export default function Footer() {
             <p>0341-579-327</p>
           </div>
           <div className="flex items-center gap-2">
-            <div className="text-xl text-dark-green">
-              <FaWhatsapp />
-            </div>
-            <p>0895-0402-7351</p>
+            <Link href="">
+              <div className="text-xl text-dark-green">
+                <FaWhatsapp />
+              </div>
+              <p>0895-0402-7351</p>
+            </Link>
           </div>
           <div className="flex items-center gap-2">
             <div className="text-xl text-dark-green">

@@ -1,34 +1,27 @@
-import Image from "next/image";
 import Link from "next/link";
-import HubungiKamiButton from "./HubungiKamiButton";
 import CTAButton from "./CTAButton";
 import { IoMenu } from "react-icons/io5";
+import Logo from "./Logo";
 
 export default function Navbar() {
   return (
     <nav className="w-full px-8 md:px-10 py-10 h-20 fixed z-10 flex justify-center">
       <div className="w-full md:w-auto">
-        <div className="bg-white h-16 px-6 shadow-xl rounded-full flex gap-20 justify-between md:justify-center items-center">
-          <div className="hidden md:flex gap-8">
-            <Link className="" href="#home">
+        <div className="bg-white h-16 px-6 shadow-xl rounded-full flex gap-40 justify-between items-center">
+          <Logo />
+          <div className="hidden md:flex gap-4 items-center">
+            <Link className="" href="/#home">
               Home
             </Link>
-            <Link className="" href="#program-pembelajaran">
-              Program Pembelajaran
+            <Link className="" href="/#program-pembelajaran">
+              Program
             </Link>
-            <Link className="" href="#gallery">
-              Gallery
+            <Link className="" href="/#gallery">
+              Galeri
             </Link>
-          </div>
-          <Image
-            src="/logo.png"
-            width={100}
-            height={100}
-            alt="Logo TK Agape"
-            className="aspect-square w-16 md:w-24"
-          />
-          <div className="hidden md:flex gap-4">
-            <HubungiKamiButton />
+            <Link className="" href="/#footer">
+              Hubungi Kami
+            </Link>
             <CTAButton />
           </div>
           <div className="block md:hidden text-3xl text-dark-green">

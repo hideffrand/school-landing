@@ -4,23 +4,18 @@ import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-export default function AnimatedImage({
-  key,
-  imageUrl,
-}: {
-  key: number;
-  imageUrl: string;
-}) {
+export default function AnimatedImage({ imageUrl }: { imageUrl: string }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
 
   return (
-    <motion.div ref={ref} key={key} className="md:w-[40%] object-contain">
+    <>
       <Image
+        ref={ref}
         src={imageUrl}
         width={800}
         height={800}
-        alt={`Gallery Image ${key + 1}`}
+        alt={`Gallery Image`}
         className="rounded-lg hover:rounded-2xl hover:scale-[1.02] transition-transform duration-300"
         style={{
           opacity: isInView ? 1 : 0,
@@ -28,6 +23,6 @@ export default function AnimatedImage({
           transition: "0.4s",
         }}
       />
-    </motion.div>
+    </>
   );
 }
