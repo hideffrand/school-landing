@@ -35,3 +35,26 @@ export const programPembelajaran: any[] = [
     img: "/vectors/Physical-education-pana.png",
   },
 ];
+
+export const navLinks: any[] = [
+  {
+    label: "Home",
+    href: "/",
+  },
+  {
+    label: "Tentang Kami",
+    href: "/about",
+  },
+  {
+    label: "Program",
+    href: "/#program-pembelajaran",
+  },
+  {
+    label: "Gallery",
+    href: "/#gallery",
+  },
+  {
+    label: "Hubungi",
+    href: "/#footer",
+  },
+];

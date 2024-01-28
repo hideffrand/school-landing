@@ -25,3 +25,10 @@
   background-size: cover;
   background-position: center;
 }
+
+#page-about-banner {
+  background-image: linear-gradient(to bottom, transparent, rgb(1, 50, 32, 0.7)), url('kantor.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

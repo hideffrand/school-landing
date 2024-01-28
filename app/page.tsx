@@ -17,9 +17,9 @@ export default function Home() {
         className="w-full md:h-screen flex flex-col justify-center items-center bg-opacity-10 py-10 px-8 md:px-40"
       >
         <div className="hero-bg-image bg-top"></div>
-        <div className="w-full min-h-screen flex flex-col-reverse md:flex-row gap-8 justify-center items-center">
-          <div className="backdrop-blur-lg border p-10 rounded-xl">
-            <h1 className="text-dark-green text-2xl md:text-5xl font-bold pb-4">
+        <div className="w-full min-h-screen flex flex-col-reverse md:flex-row gap-8 justify-between items-center py-32">
+          <div className="backdrop-blur-lg border p-4 md:p-10 rounded-xl flex flex-col items-start justify-center">
+            <h1 className="text-dark-green text-xl md:text-5xl font-bold pb-4">
               Selamat datang di <br /> TK Agape
             </h1>
             <p className="md:text-xl text-sm md:w-full">
@@ -28,7 +28,9 @@ export default function Home() {
               setiap anak.
             </p>
             <div className="flex justify-start w-full gap-4 py-8">
-              <ContactButton />
+              <div className="hidden md:block">
+                <ContactButton />
+              </div>
               <CTAButton />
             </div>
           </div>
@@ -37,13 +39,13 @@ export default function Home() {
             width={800}
             height={800}
             alt="Halo"
-            className="md:w-1/2 mt-40 md:mt-0 object-cover rounded-lg aspect-video hover:scale-[1.02] transition-transform duration-300 shadow-xl"
+            className="md:w-1/2 md:mt-0 object-cover rounded-lg aspect-video hover:scale-[1.02] transition-transform duration-300 shadow-xl"
           />
         </div>
       </main>
 
       <section
-        id="program-pembelajaran"
+        id="program"
         className="w-full min-h-screen px-8 md:px-40 pb-20 flex flex-col justify-center items-center"
       >
         <h1 className="text-dark-green text-2xl font-bold text-center pb-8">

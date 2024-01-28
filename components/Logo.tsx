@@ -6,10 +6,10 @@ export default function Logo() {
     <Link href="/">
       <Image
         src="/logo.png"
-        width={100}
-        height={100}
+        width={400}
+        height={400}
         alt="Logo TK Agape"
-        className="aspect-square w-16 md:w-24"
+        className="aspect-square w-24"
       />
     </Link>
   );

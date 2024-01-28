@@ -26,7 +26,7 @@ export default function Footer() {
             <p>0341-579-327</p>
           </div>
           <div className="flex items-center gap-2">
-            <Link href="">
+            <Link href="" className="flex gap-2">
               <div className="text-xl text-dark-green">
                 <FaWhatsapp />
               </div>

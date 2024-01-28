@@ -118,32 +118,15 @@ export default function PendaftaranPage() {
                 ))}
               </div>
 
-              <div className="py-4">
-                <h1 className="text-dark-green font-bold text-lg md:text-xl bg-gray-200 p-4">
-                  C. Persyaratan Dokumen
-                </h1>
-                {requiredDocumentsFields.map((field, i) => (
-                  <div key={i} className="py-2">
-                    <label htmlFor={field.id} className="flex">
-                      {field.label}:
-                    </label>
-                    <input
-                      type="file"
-                      id={field.id}
-                      className="w-full p-2"
-                      required
-                    />
-                  </div>
-                ))}
-              </div>
-
               <button
                 type="submit"
                 className="bg-dark-green py-2 px-4 rounded-full text-white my-4"
               >
                 Daftar
               </button>
-              <p className="w-full text-center text-gray-600 py-4 border-t">Hubungi kami jika butuh bantuan</p>
+              <p className="w-full text-center text-gray-600 py-4 border-t">
+                Hubungi kami jika butuh bantuan
+              </p>
               <ContactButton />
             </form>
           </section>
