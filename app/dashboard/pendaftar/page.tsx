@@ -4,8 +4,8 @@ export default function ManagePendaftar() {
   return (
     <Layout>
       <div className="w-full h-full p-8 bg-white rounded-xl">
-        <b>List Pendaftar</b>
+        <h1 className="text-xl font-bold">List Pendaftar</h1>
       </div>
     </Layout>
-  )
+  );
 }
