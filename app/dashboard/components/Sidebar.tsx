@@ -70,7 +70,7 @@ export default function Sidebar() {
         </div>
         <section className="w-full py-4 border-t border-gray-600">
           <button
-            onClick={handleSignOut}
+            // onClick={handleSignOut}
             className="py-2 px-6 w-full rounded-lg flex items-center gap-4 hover:bg-super-dark-green"
           >
             <div>
