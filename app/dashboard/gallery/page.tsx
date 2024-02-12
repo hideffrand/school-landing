@@ -6,15 +6,15 @@ const getServerSideProps = async () => {
 };
 
 export default async function ManageGallery() {
-  const handleUploadFile = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      await uploadFile(fileToUpload, activeSection);
-      location.reload();
-    } catch (error) {
-      console.log("Error when uploading image: ", error);
-    }
-  };
+  // const handleUploadFile = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   try {
+  //     await uploadFile(fileToUpload, activeSection);
+  //     location.reload();
+  //   } catch (error) {
+  //     console.log("Error when uploading image: ", error);
+  //   }
+  // };
 
   // const handleDeleteFile = async (fileToDelete: string) => {
   //   try {
@@ -42,7 +42,6 @@ export default async function ManageGallery() {
               // onChange={(e) => setFileToUpload(e.target.files?.[0] ?? null)}
             />
             <button
-              type="submit"
               className="px-4 py-0.5 bg-gray-200 rounded-md border border-gray-600 hover:bg-dark-green hover:text-white"
             >
               Upload

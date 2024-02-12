@@ -1,5 +1,3 @@
-"use client";
-
 import Logo from "@/components/Logo";
 import Link from "next/link";
 import { RxExit } from "react-icons/rx";
@@ -8,10 +6,8 @@ import { FaFolder } from "react-icons/fa";
 import { IoDocumentText, IoSettingsSharp } from "react-icons/io5";
 import { IoMdPhotos } from "react-icons/io";
 import { getCurrentUser, signOut } from "@/libs/supabase/auth";
-import { useEffect, useState } from "react";
 
 export default function Sidebar() {
-  const [currentUser, setCurrentUser] = useState<string>("");
   const links: any[] = [
     {
       title: "Home",
@@ -41,17 +37,15 @@ export default function Sidebar() {
   ];
 
   async function handleSignOut() {
-    await signOut();
+    await fetch("/api/auth/signout", { method: "POST" });
   }
 
   async function handleGetCurrentUser() {
     const user = await getCurrentUser();
+    const cookie = document.cookie;
+    console.log(cookie);
     return user ? user?.email : "...";
   }
-
-  useEffect(() => {
-    handleGetCurrentUser().then((res) => setCurrentUser(res));
-  }, []);
 
   return (
     <div className="w-80 h-screen sticky top-4 p-4">
@@ -60,7 +54,6 @@ export default function Sidebar() {
           <Logo />
           <div className="w-full px-6 py-6 border-t border-gray-600">
             <h1 className="text-xl font-bold">Welcome,</h1>
-            <p>{currentUser}</p>
           </div>
         </div>
         <div className="flex flex-col gap-1 w-full">

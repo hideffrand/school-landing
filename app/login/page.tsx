@@ -12,15 +12,16 @@ export default function LoginPage() {
   const passwordRef: any = useRef(null);
 
   async function handleSubmit(e: any) {
-    const email = emailRef.current.value;
-    const password = passwordRef.current.value;
-    e.preventDefault();
-    try {
-      await signIn(email, password);
-      router.push("/dashboard");
-    } catch (error) {
-      console.log("Error login: ", error);
-    }
+    alert("Login still in progress")
+    // const email = emailRef.current.value;
+    // const password = passwordRef.current.value;
+    // e.preventDefault();
+    // try {
+    //   await signIn(email, password);
+    //   router.push("/dashboard");
+    // } catch (error) {
+    //   console.log("Error login: ", error);
+    // }
   }
 
   return (

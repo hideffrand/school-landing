@@ -45,7 +45,6 @@ export default async function ManageDocuments() {
               // onChange={(e) => setFileToUpload(e.target.files?.[0] ?? null)}
             />
             <button
-              type="submit"
               className="px-4 py-0.5 bg-gray-200 rounded-md border border-gray-600 hover:bg-dark-green hover:text-white"
             >
               Upload
