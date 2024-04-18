@@ -48,7 +48,7 @@ export const uploadFile = async (fileToUpload: any, type: string) => {
   }
 };
 
-export const deleteFile = async (fileName: any, type: string) => {
+export const deleteFile = async (fileName: string, type: string) => {
   try {
     if (type == "image") {
       const fileRef = ref(storage, `gallery/${fileName}`);
@@ -66,8 +66,25 @@ export const deleteFile = async (fileName: any, type: string) => {
   }
 };
 
+// Define an interface for the cached data
+interface CachedData {
+  timestamp: number;
+  data: { fileName: string; url: string }[];
+}
+
+// Define an object to store cached data
+const cache: { [folderName: string]: CachedData } = {};
+
 export const getAllFiles = async (folderName: string) => {
   try {
+    // Check if folderName exists in cache and if it's not expired
+    if (
+      cache[folderName] &&
+      Date.now() - cache[folderName].timestamp < CACHE_EXPIRY
+    ) {
+      return cache[folderName].data;
+    }
+
     const listRef = ref(storage, folderName);
     const result = await listAll(listRef);
 
@@ -80,8 +97,19 @@ export const getAllFiles = async (folderName: string) => {
       })
     );
 
+    // Update cache with new data
+    cache[folderName] = {
+      timestamp: Date.now(),
+      data: data,
+    };
+
     return data;
   } catch (error) {
+    // Handle errors
     console.log("Error fetching all files: ", error);
+    throw error; // Rethrow the error to handle it outside
   }
 };
+
+// Define cache expiry time (e.g., 1 hour)
+const CACHE_EXPIRY = 60 * 60 * 1000; // 1 hour in milliseconds

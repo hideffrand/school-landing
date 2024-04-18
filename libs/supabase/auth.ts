@@ -1,47 +1,43 @@
-import { supabase } from "./init";
-import bcrypt from "bcrypt";
+"use server";
 
-export const signIn = async (email: string, password: string) => {
-  try {
-    const { data, error } = await supabase
-      .from("users")
-      .select("*")
-      .eq("email", email)
-      .single();
+import { supabase } from "@/libs/supabase/init";
+import jwt from "jsonwebtoken";
+import { JWT_SECRET } from "@/constant";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
-    if (error) {
-      console.log(error);
-      return false;
-    }
+export const login = async (formData: FormData): Promise<void> => {
+  const email = formData.get("email") as string;
+  const password = formData.get("password") as string;
 
-    if (data.password == password && data.tier == "admin") {
-      alert("Signed in!");
-      document.cookie = `email=${email}; expires=Mon, 1 Jan 2030 00:00:00 UTC; path=/dashboard/path:*;`;
-      return data.email;
-    }
+  if (!email || !password)
+    return redirect("/login?message=Email or password invalid");
 
-    return { error: "Invalid email or password" };
-  } catch (error) {
-    console.log("Error signing in user: ", error);
-    return { error };
-  }
+  const {
+    data: { user },
+  } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
+
+  if (!user) return redirect("/login?message=Email or password invalid");
+
+  const token = jwt.sign({ email }, JWT_SECRET, { expiresIn: "1h" });
+  console.log(token);
+  const expires = new Date(Date.now() + 12 * 60 * 60 * 1000); // now + 12 hours in milisecond
+
+  cookies().set("token", token, {
+    expires,
+    httpOnly: true,
+    sameSite: "none",
+    secure: true,
+  });
+
+  return redirect("/dashboard");
 };
 
-export const signOut = async () => {
-  try {
-    await supabase.auth.signOut();
-  } catch (error) {
-    console.log("Error sign out user: ", error);
-  }
-};
+export const logout = async (): Promise<void> => {
+  cookies().delete("token");
 
-export const getCurrentUser = async () => {
-  try {
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    return user;
-  } catch (error) {
-    console.log("Error getting current user: ", error);
-  }
+  return redirect("/login");
 };

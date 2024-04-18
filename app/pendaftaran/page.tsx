@@ -1,4 +1,3 @@
-import { redirect } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactButton from "@/components/ContactButton";
@@ -43,25 +42,6 @@ export default function PendaftaranPage() {
     {
       label: "Tempat/Tanggal Lahir Ibu",
       id: "ttl-ibu",
-    },
-  ];
-
-  const requiredDocumentsFields: any[] = [
-    {
-      label: "Pas Foto 3x4 cm",
-      id: "pas-foto",
-    },
-    {
-      label: "Fotocopy Akta Kelahiran",
-      id: "fc-akta-kelahiran",
-    },
-    {
-      label: "Fotocopy Kartu Keluarga",
-      id: "fc-kk",
-    },
-    {
-      label: "Fotocopy Ijazah dan Nilai (jika ada)",
-      id: "fc-ijazah-nilai",
     },
   ];
 

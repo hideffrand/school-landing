@@ -1,3 +1,5 @@
+"use client";
+
 import Logo from "@/components/Logo";
 import Link from "next/link";
 import { RxExit } from "react-icons/rx";
@@ -5,7 +7,8 @@ import { IoHome } from "react-icons/io5";
 import { FaFolder } from "react-icons/fa";
 import { IoDocumentText, IoSettingsSharp } from "react-icons/io5";
 import { IoMdPhotos } from "react-icons/io";
-import { getCurrentUser, signOut } from "@/libs/supabase/auth";
+import { supabase } from "@/libs/supabase/init";
+import { logout } from "@/libs/supabase/auth";
 
 export default function Sidebar() {
   const links: any[] = [
@@ -36,16 +39,9 @@ export default function Sidebar() {
     },
   ];
 
-  async function handleSignOut() {
-    await fetch("/api/auth/signout", { method: "POST" });
-  }
-
-  async function handleGetCurrentUser() {
-    const user = await getCurrentUser();
-    const cookie = document.cookie;
-    console.log(cookie);
-    return user ? user?.email : "...";
-  }
+  const changeSectionAction = (title: string) => {
+    window.location.href = `/dashboard?section=${title}`;
+  };
 
   return (
     <div className="w-80 h-screen sticky top-4 p-4">
@@ -58,19 +54,19 @@ export default function Sidebar() {
         </div>
         <div className="flex flex-col gap-1 w-full">
           {links.map((link, i) => (
-            <Link
+            <button
               key={i}
-              href={link.path}
-              className="px-6 py-2 rounded-lg flex items-center gap-4 hover:bg-super-dark-green"
+              className="px-6 py-2 rounded-lg flex items-center gap-4 hover:bg-super-dark-green cursor-pointer"
+              onClick={() => changeSectionAction(link.title)}
             >
               <div>{link.icon}</div>
               {link.title}
-            </Link>
+            </button>
           ))}
         </div>
         <section className="w-full py-4 border-t border-gray-600">
           <button
-            // onClick={handleSignOut}
+            onClick={() => logout()}
             className="py-2 px-6 w-full rounded-lg flex items-center gap-4 hover:bg-super-dark-green"
           >
             <div>
