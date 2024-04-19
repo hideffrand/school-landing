@@ -7,8 +7,7 @@ import { IoHome } from "react-icons/io5";
 import { FaFolder } from "react-icons/fa";
 import { IoDocumentText, IoSettingsSharp } from "react-icons/io5";
 import { IoMdPhotos } from "react-icons/io";
-import { supabase } from "@/libs/supabase/init";
-import { logout } from "@/libs/supabase/auth";
+import { logout } from "@/libs/auth";
 
 export default function Sidebar() {
   const links: any[] = [

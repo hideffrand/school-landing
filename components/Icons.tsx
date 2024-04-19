@@ -1,3 +1,5 @@
-export default function Icon({ child }: { child: any }) {
-  return <div className="text-xl">{child}</div>;
+import { ReactNode } from "react";
+
+export default function Icon({ children }: { children: ReactNode }) {
+  return <div className="text-xl">{children}</div>;
 }

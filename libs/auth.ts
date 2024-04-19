@@ -23,7 +23,6 @@ export const login = async (formData: FormData): Promise<void> => {
   if (!user) return redirect("/login?message=Email or password invalid");
 
   const token = jwt.sign({ email }, JWT_SECRET, { expiresIn: "1h" });
-  console.log(token);
   const expires = new Date(Date.now() + 12 * 60 * 60 * 1000); // now + 12 hours in milisecond
 
   cookies().set("token", token, {

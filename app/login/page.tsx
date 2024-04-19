@@ -1,5 +1,5 @@
 import { SubmitButton } from "./submit-button";
-import { login } from "@/libs/supabase/auth";
+import { login } from "@/libs/auth";
 import { supabase } from "@/libs/supabase/init";
 import { redirect } from "next/navigation";
 import Logo from "@/components/Logo";
@@ -9,23 +9,6 @@ export default function Login({
 }: {
   searchParams: { message: string };
 }) {
-  // const logIn = async (formData: FormData) => {
-  //   const email = formData.get("email") as string;
-  //   const password = formData.get("password") as string;
-
-  //   const { error } = await supabase.auth.signInWithPassword({
-  //     email,
-  //     password,
-  //   });
-
-  //   if (error) {
-  //     console.log(error);
-  //     return redirect("/login?message=Username or password invalid");
-  //   }
-
-  //   return redirect("/dashboard");
-  // };
-
   return (
     <div className="flex flex-col w-full h-screen px-8 mt-12 items-center gap-12">
       <Logo />
@@ -37,6 +20,7 @@ export default function Login({
           className="rounded-md px-4 py-2 bg-inherit border mb-6"
           name="email"
           placeholder="you@example.com"
+          autoComplete="none"
           required
         />
         <label className="text-md" htmlFor="password">
@@ -46,6 +30,7 @@ export default function Login({
           className="rounded-md px-4 py-2 bg-inherit border mb-6"
           type="password"
           name="password"
+          autoComplete="none"
           placeholder="••••••••"
           required
         />

@@ -19,7 +19,7 @@ export default function Dashboard({
     <>
       <div className="bg-gray-100 w-full h-screen flex relative">
         <Sidebar />
-        <section className="w-full h-full p-4 flex flex-col gap-4 text-dark-green">
+        <section className="w-full h-full p-4 flex gap-4 text-dark-green">
           {(searchParams.section == "Home" || searchParams.section == null) && (
             <div className="h-full w-full bg-white rounded-xl px-6 py-4 border flex items-center justify-center">
               <Image
